@@ -1,0 +1,24 @@
+<ion-view view-title="Home">
+  <ion-content>
+    <!-- faz uma validação para saber se o usuário está logado -->
+    <div class="list" ng-if="!userLogado">
+        <a class="button button-block icon-right ion-chevron-right button-positive" href="#/app/login">Acessar Conta</a>
+    </div>
+
+    <div class="list" ng-if="userLogado">
+      <!-- colocar aqui algumas informações do app -->
+      <a class="item item-icon-left" href="#">
+       <i class="icon ion-plus"></i>
+         Adicionar Pontos
+       </a>
+       <a class="item item-icon-left" href="#">
+        <i class="icon ion-trophy"></i>
+          Resgatar Prêmio
+        </a>
+        <a class="item item-icon-left" href="#/app/clientehome">
+         <i class="icon ion-person-stalker"></i>
+           Cadastro de Clientes
+         </a>
+    </div>
+   </ion-content>
+  </ion-view>
