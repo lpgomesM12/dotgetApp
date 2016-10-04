@@ -1,0 +1,35 @@
+<ion-view view-title="Adicionar Pontos">
+  <ion-content>
+  <form name="form">
+    <div class="list">
+      <label class="item item-input">
+        <input placeholder="Digite o CPF ou código cliente" type="number" ng-model="cliente.identificador" required>
+        <button class="button button-positive ion-search"></button>
+      </label>
+      <label class="item item-input">
+          <input placeholder="Valor Gasto" type="text" ng-model="cliente.valor_gasto" ui-number-mask="2" required>
+      </label>
+   </div>
+
+   <div ng-show="dadoscliente">
+    <button class="button button-block button-positive ion-plus" ng-disabled="!form.$valid">
+      Adicionar pontos
+    </button>
+    <div class="card" ng-show="dadoscliente">
+      <div class="item item-divider">
+         Dados clientes
+       </div>
+       <div class="item item-text-wrap">
+         {{nome_cliente}}<br>
+         <strong>Código:</strong><br>
+          <strong>Pontos Acomulados:</strong>
+       </div>
+       <div class="item item-divider">
+      </div>
+    </div>
+  </div>
+
+ </form>
+
+</ion-content>
+</ion-view>

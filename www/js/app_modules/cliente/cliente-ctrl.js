@@ -1,7 +1,9 @@
 angular.module('cliente', [])
-.controller('clienteCtrl', ['$scope','$stateParams','buscaCidades','servicoCliente','$rootScope', function($scope,$stateParams,buscaCidades,servicoCliente,$rootScope){
+.controller('clienteCtrl', ['$scope','$stateParams','buscaCidades','servicoCliente','$rootScope','$location','$ionicLoading','$ionicPopup', function($scope,$stateParams,buscaCidades,servicoCliente,$rootScope,$location,$ionicLoading){
 
  $scope.cliente = {};
+
+ $scope.dadoscliente = true;
 
  $scope.estados = [
    {id : 1, nome : "Acre"},
@@ -49,11 +51,21 @@ angular.module('cliente', [])
    $scope.cliente.empresa_id = $rootScope.userIdEmpresa
    $scope.cliente.userId = $rootScope.userId;
 
+   $ionicLoading.show({
+     content: 'Loading',
+     animation: 'fade-in',
+     showBackdrop: true,
+     maxWidth: 200,
+     showDelay: 0
+   });
+
    servicoCliente.cadastrar($scope.cliente)
      .then(function(cliente){
+       $ionicLoading.hide();
        $location.path('/app/clientehome');
      })
      .catch(function(erro){
+       $ionicLoading.hide();
        console.log(erro);
      });
    };

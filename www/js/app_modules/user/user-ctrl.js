@@ -1,34 +1,28 @@
 angular.module('user', [])
-.controller('logarCtrl', function ($scope,logar,$stateParams,$location,$rootScope) {
+.controller('logarCtrl', function ($scope,logar,$stateParams,$location,$rootScope,$localStorage,$ionicPopup) {
 
  $scope.usuario = {};
- //console.log(sessionStorage.userLogado);
- //console.log(sessionStorage.nome);
 
-//$scope.nomeUsuario = sessionStorage.nome;
+ $scope.$storage = $localStorage;
 
 $scope.logar = function() {
        logar.login($scope.usuario)
          .then(function(dados){
             if(!dados){
-             console.log("login invalido");
+             $scope.showAlert();
             }else{
-            console.log("Logou");
-            console.log(dados.id);
-            console.log(dados.nome);
-            console.log(dados.empresa_id);
 
-            sessionStorage.setItem('userId',dados.id);
-            sessionStorage.setItem('userNome',dados.nome);
-            sessionStorage.setItem('userIdEmpresa',dados.empresa_id);
-            sessionStorage.setItem('userLogado',true);
+            $localStorage.userLogado = true;
+            $localStorage.userId = dados.id;
+            $localStorage.nomeUsuario = dados.nome;
+            $localStorage.userIdEmpresa = dados.empresa_id;
 
             $rootScope.userLogado = true;
             $rootScope.userId = dados.id;
             $rootScope.nomeUsuario = dados.nome;
             $rootScope.userIdEmpresa = dados.empresa_id
 
-            $location.path('/app/produtos/9');
+            $location.path('/app/home');
 
             }
          })
@@ -38,9 +32,23 @@ $scope.logar = function() {
     }
 
  $scope.deslogar = function() {
-        sessionStorage.clear();
-        sessionStorage.setItem('userLogado',false);
-        $scope.logado = false;
+        $localStorage.$reset();
+
+        $localStorage.userLogado = false;
+        //$scope.logado = false;
         $location.path('/app/login');
     }
+
+
+    $scope.showAlert = function() {
+          var alertPopup = $ionicPopup.alert({
+             title: 'Aviso',
+             template: 'Dados de acesso estão incorretos'
+          });
+
+          alertPopup.then(function(res) {
+             // Custom functionality....
+          });
+  };
+
 });

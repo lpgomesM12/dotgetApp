@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers','user','cliente'])
+angular.module('starter', ['ionic', 'starter.controllers','user','cliente','ngStorage','ui.utils.masks'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -72,9 +72,15 @@ angular.module('starter', ['ionic', 'starter.controllers','user','cliente'])
     }
   })
 
-
-
-
+  .state('app.addponto', {
+    url: "/addponto",
+    views: {
+      'menuContent': {
+       templateUrl: "js/app_modules/cliente/addponto.html",
+        controller: 'clienteCtrl'
+      }
+    }
+  })
 
 
 // daqui para baixo são as rotas padrão
