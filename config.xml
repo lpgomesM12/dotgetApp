@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.dotgetapp723518" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>dotGetApp</name>
+<widget id="com.ionicframework.dotgetapp723518" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>DotGet</name>
   <description>
-        An Ionic Framework and Cordova project.
+        Seu programa de fidelidade.
     </description>
-  <author email="you@example.com" href="http://example.com.com/">
-      Your Name Here
+  <author email="grupolpgomes@gmail.com" href="http://www.dotget.com.br/">
+      Leandro Pereira Gomes
     </author>
   <content src="index.html"/>
   <access origin="*"/>
@@ -19,4 +19,20 @@
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
+  <platform name="android">
+      <preference name="SplashScreen" value="screen" />
+      <splash density="land-hdpi" src="res/screen/android/drawable-land-hdpi.png" />
+      <splash density="land-ldpi" src="res/screen/android/drawable-land-ldpi.png" />
+      <splash density="land-mdpi" src="res/screen/android/drawable-land-mdpi.png" />
+      <splash density="land-xhdpi" src="res/screen/android/drawable-land-xhdpi.png" />
+      <splash density="port-hdpi" src="res/screen/android/drawable-port-hdpi.png" />
+      <splash density="port-ldpi" src="res/screen/android/drawable-port-ldpi.png" />
+      <splash density="port-mdpi" src="res/screen/android/drawable-port-mdpi.png" />
+      <splash density="port-xhdpi" src="res/screen/android/drawable-port-xhdpi.png" />
+      <icon density="ldpi" src="res/icon/android/drawable-ldpi.png" />
+      <icon density="mdpi" src="res/icon/android/drawable-mdpi.png" />
+      <icon density="hdpi" src="res/icon/android/drawable-hdpi.png" />
+      <icon density="xhdpi" src="res/icon/android/drawable-xhdpi.png" />
+  </platform>
+  <icon src="res/icon/icon.png" />
 </widget>

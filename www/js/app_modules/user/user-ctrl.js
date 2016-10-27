@@ -3,7 +3,7 @@ angular.module('user', [])
 
  $scope.usuario = {};
 
- $scope.$storage = $localStorage;
+  $scope.$storage = $localStorage;
 
 $scope.logar = function() {
        logar.login($scope.usuario)
@@ -37,8 +37,7 @@ $scope.logar = function() {
         $localStorage.userLogado = false;
         //$scope.logado = false;
         $location.path('/app/login');
-    }
-
+}
 
     $scope.showAlert = function() {
           var alertPopup = $ionicPopup.alert({

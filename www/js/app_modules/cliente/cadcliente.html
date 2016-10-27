@@ -3,7 +3,7 @@
     <form name="form" ng-submit="cadastrar()">
       <div class="list">
         <label class="item item-input">
-          <input placeholder="Digite o CPF" type="number" ng-model="cliente.cpf" required>
+          <input placeholder="Digite o CPF" type="tel" ng-blur="valida_cpf()" ng-model="cliente.cpf" required>
         </label>
         <label class="item item-input">
           <input type="text"  placeholder="Digite o primeiro nome" ng-model="cliente.primeironome" required>
@@ -52,8 +52,7 @@
          </select>
       </label>
      </div>
-
-     <button class="button button-block button-positive" type="submit" ng-disabled="!form.$valid">
+     <button class="button button-block button-positive" type="submit" ng-disabled="!(form.$valid && btndesabilitado)">
        Cadastrar
      </button>
 

@@ -16,20 +16,20 @@
     <ion-header-bar class="bar-stable">
       <h1 class="title">Menu</h1>
     </ion-header-bar>
-    <ion-content>
-      <ion-list>
-        <!-- <ion-item menu-close ng-click="login()">
-          Login
-        </ion-item> -->
-        <!-- <ion-item menu-close href="#/app/search">
-          Clientes
-        </ion-item> -->
-        <!-- <ion-item menu-close href="#/app/browse">
-          Browse
+    <ion-content >
+      <ion-list ng-if="$storage.userLogado">
+        <ion-item menu-close class="item item-icon-left" href="#/app/addponto">
+          <i class="icon ion-plus"></i>
+          Adicionar Pontos
         </ion-item>
-        <ion-item menu-close href="#/app/playlists">
-          Playlists
-        </ion-item> -->
+        <ion-item menu-close class="item item-icon-left" href="#/app/clientehome">
+          <i class="icon ion-person-stalker"></i>
+            Cadastro de Clientes
+        </ion-item>
+        <ion-item menu-close class="item item-icon-left" href="#/app/resgatapremio">
+          <i class="icon ion-trophy"></i>
+            Resgatar Prêmio
+        </ion-item>
       </ion-list>
     </ion-content>
   </ion-side-menu>

@@ -1,24 +1,17 @@
-<ion-view view-title="Home">
+<ion-view view-title="">
   <ion-content>
+
+    <!-- <a class="button icon ion-person" style="width:50%;height:20%"></a> -->
     <!-- faz uma validação para saber se o usuário está logado -->
-    <div class="list" ng-if="!userLogado">
+    <div class="list list-inset" ng-if="!$storage.userLogado">
         <a class="button button-block icon-right ion-chevron-right button-positive" href="#/app/login">Acessar Conta</a>
     </div>
 
-    <div class="list" ng-if="userLogado">
-      <!-- colocar aqui algumas informações do app -->
-      <a class="item item-icon-left" href="#/app/addponto">
-       <i class="icon ion-plus"></i>
-         Adicionar Pontos
-       </a>
-       <a class="item item-icon-left" href="#">
-        <i class="icon ion-trophy"></i>
-          Resgatar Prêmio
-        </a>
-        <a class="item item-icon-left" href="#/app/clientehome">
-         <i class="icon ion-person-stalker"></i>
-           Cadastro de Clientes
-         </a>
-    </div>
+    <div class="card" ng-if="$storage.userLogado">
+      <div class="item item-text-wrap">
+        <h1 align="center"><strong style="color:#004385">DotGet</strong></h1>
+       </div>
+     </div>
+
    </ion-content>
   </ion-view>
