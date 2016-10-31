@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers','user','cliente','premio','ngStorage','ui.utils.masks'])
+angular.module('starter', ['ionic', 'starter.controllers','user','cliente','premio','ngStorage','ui.utils.masks','ion-floating-menu'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -88,6 +88,16 @@ angular.module('starter', ['ionic', 'starter.controllers','user','cliente','prem
       'menuContent': {
        templateUrl: "js/app_modules/premio/resgatapremio.html",
         controller: 'premioCtrl'
+      }
+    }
+  })
+
+  .state('app.showcliente', {
+    url: "/showcliente/:cliente",
+    views: {
+      'menuContent': {
+       templateUrl: "js/app_modules/cliente/showcliente.html",
+        controller: 'showclienteCtrl'
       }
     }
   })

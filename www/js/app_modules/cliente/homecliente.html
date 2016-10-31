@@ -1,13 +1,17 @@
-<ion-view view-title="Home">
+<ion-view view-title="Clientes">
+  <ion-floating-button click="cadCliente()" has-footer="false" button-color="#2AC9AA" icon="ion-plus" icon-color="#fff">
+  </ion-floating-button>
   <ion-content>
-    <div class="list">
+    <!-- <div class="list">
       <a class="item item-icon-left" href="#/app/cadcliente">
        <i class="icon ion-person-add"></i>
          Novo Cliente
      </a>
-      <a class="item item-icon-left" href="#">
-       <i class="icon ion-search"></i>
-         Pesquisar clientes
+    </div> -->
+    <div class="list">
+      <a class="item" href="#/app/showcliente/{{cliente.id}}" ng-repeat="cliente in clientes">
+          {{cliente.nome_primeiro}} {{cliente.nome_sobrenome}} <br>
+          <i class="icon ion-card"></i> {{cliente.codigo_cliente}}
        </a>
     </div>
   </ion-content>

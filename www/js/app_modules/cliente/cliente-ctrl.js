@@ -4,7 +4,20 @@ angular.module('cliente', [])
  $scope.cliente = {};
  $scope.$storage = $localStorage;
  $scope.cidades = [];
- $scope.btndesabilitado = false;
+ $scope.btndesabilitado = true;
+
+$scope.cadCliente = function(){
+   $location.path('/app/cadcliente');
+};
+
+$scope.listaClientes = function(){
+    servicoCliente.listaclientes($scope.$storage.userIdEmpresa)
+        .then(function(dados){
+          $scope.clientes = dados;
+        }).catch(function(erro){
+           console.log(erro);
+        });
+};
 
  $scope.valida_cpf = function() {
     servicoCliente.validaCliente($scope.cliente.cpf,$scope.$storage.userIdEmpresa)
@@ -40,7 +53,6 @@ angular.module('cliente', [])
           console.log(erro);
         });
  };
-
 
  $scope.buscaCidades = function(estado_id) {
      buscaCidades.busca(estado_id)
@@ -78,7 +90,6 @@ angular.module('cliente', [])
    };
 
  $scope.buscaCliente = function(identificador){
-
       servicoCliente.buscaCliente(identificador,$scope.$storage.userIdEmpresa)
       .then(function(cliente){
 
@@ -165,5 +176,29 @@ $scope.limpaCliente = function(){
      {id : 26, nome : "São Paulo"},
      {id : 27, nome : "Tocantins"},
    ];
+
+ $scope.listaClientes();
+
+})
+.controller('showclienteCtrl', function($scope,$stateParams,servicoCliente,$rootScope,$location,$ionicLoading,$localStorage,$ionicPopup){
+
+  servicoCliente.showcliente($stateParams.cliente)
+      .then(function(cliente){
+         $scope.showcliente = {};
+        // console.log(cliente.nome_sobrenome);
+        $scope.showcliente.nome_primeiro = cliente.nome_primeiro;
+        $scope.showcliente.nome_sobrenome = cliente.nome_sobrenome;
+        $scope.showcliente.cpf = cliente.cpf;
+        $scope.showcliente.email = cliente.email;
+        $scope.showcliente.codigo_cliente = cliente.codigo_cliente;
+        $scope.showcliente.sexo = cliente.sexo;
+        $scope.showcliente.endereco = cliente.endereco;
+        $scope.showcliente.complemento = cliente.complemento;
+        $scope.showcliente.estado = cliente.estado;
+        $scope.showcliente.cidade = cliente.cidade;
+        $scope.showcliente.ponto_acumulado = cliente.ponto_acumulado;
+      }).catch(function(erro){
+         console.log(erro);
+      });
 
 });

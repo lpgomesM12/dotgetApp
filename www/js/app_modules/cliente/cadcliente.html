@@ -3,7 +3,7 @@
     <form name="form" ng-submit="cadastrar()">
       <div class="list">
         <label class="item item-input">
-          <input placeholder="Digite o CPF" type="tel" ng-blur="valida_cpf()" ng-model="cliente.cpf" required>
+          <input placeholder="Digite o CPF" type="tel" ng-blur="valida_cpf()" ng-model="cliente.cpf">
         </label>
         <label class="item item-input">
           <input type="text"  placeholder="Digite o primeiro nome" ng-model="cliente.primeironome" required>
@@ -38,7 +38,7 @@
            <div class = "input-label">
             Estado
           </div>
-          <select ng-model="estado_id" ng-change="buscaCidades(estado_id)">
+          <select ng-model="estado_id" ng-change="buscaCidades(estado_id)" required>
              <option  ng-repeat="estado in estados" value="{{estado.id}}">{{estado.nome}}</option>
           </select>
        </label>
@@ -47,12 +47,12 @@
           <div class = "input-label">
            Cidade
          </div>
-         <select ng-model="cliente.cidade_id">
+         <select ng-model="cliente.cidade_id" required>
             <option  ng-repeat="cidade in cidades" value="{{cidade.id}}">{{cidade.nome}}</option>
          </select>
       </label>
      </div>
-     <button class="button button-block button-positive" type="submit" ng-disabled="!(form.$valid && btndesabilitado)">
+     <button class="button button-block button-positive" type="submit" ng-disabled="!form.$valid">
        Cadastrar
      </button>
 
