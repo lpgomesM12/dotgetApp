@@ -93,7 +93,7 @@ angular.module('cliente')
 
     service.listaclientes = function(empresa){
       return $q(function(resolve,reject){
-        $http.get('http://138.68.62.151/addpontocliente?valor='+valor+'&empresa_id='+empresa+'&id='+user)
+        $http.get('http://138.68.62.151/listaclientes?empresa_id='+empresa)
         //$http.get('http://localhost:3000/listaclientes?empresa_id='+empresa)
         .success(function(cliente){
           resolve(cliente);
@@ -106,7 +106,7 @@ angular.module('cliente')
 
     service.showcliente = function(cliente){
       return $q(function(resolve,reject){
-        $http.get('http://138.68.62.151/addpontocliente?valor='+valor+'&empresa_id='+empresa+'&id='+user)
+        $http.get('http://138.68.62.151/showcliente?cliente_id='+cliente)
         //$http.get('http://localhost:3000/showcliente?cliente_id='+cliente)
         .success(function(cliente){
           resolve(cliente);
