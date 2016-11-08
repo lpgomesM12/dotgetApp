@@ -4,7 +4,9 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers','user','cliente','premio','ngStorage','ui.utils.masks','ion-floating-menu'])
+angular.module('starter', ['ionic', 'starter.controllers','user','cliente','premio','ngStorage','ui.utils.masks',
+'ion-floating-menu',
+'empresa'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -102,6 +104,15 @@ angular.module('starter', ['ionic', 'starter.controllers','user','cliente','prem
     }
   })
 
+  .state('app.listaempresas', {
+    url: "/listaempresas",
+    views: {
+      'menuContent': {
+       templateUrl: "js/app_modules/empresa/listaempresa.html",
+        controller: 'empresaCtrl'
+      }
+    }
+  })
 // daqui para baixo são as rotas padrão
 
   .state('app.search', {

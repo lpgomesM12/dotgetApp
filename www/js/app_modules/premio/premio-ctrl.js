@@ -5,7 +5,7 @@ angular.module('premio', [])
   $scope.$storage = $localStorage;
 
   $scope.resgataPonto = function(){
-     servicoPremio.resgatarpremio($scope.$storage.userIdEmpresa,$scope.premio,$localStorage.userId)
+     servicoPremio.resgatarpremio($scope.$storage.userIdEmpresa,$scope.premio_id,$scope.$storage.userId)
       .then(function(cliente) {
           $scope.showAlert("O prêmio foi resgatado com sucesso.");
       })
@@ -24,8 +24,9 @@ angular.module('premio', [])
          }
 
          for (var i in cliente) {
+           $scope.buscaPremios();
            var item = cliente[i];
-           $scope.nome_cliente = item.nome;
+           $scope.nome_cliente = item.nome
            $scope.sobrenome = item.sobrenome;
            $scope.codigo_cliente = item.codigo;
            $scope.ponto_acumulado = item.qdtPonto;
@@ -38,4 +39,14 @@ angular.module('premio', [])
         console.log(erro);
        });
     };
+
+    $scope.buscaPremios = function(){
+         servicoPremio.buscapremios($scope.$storage.userIdEmpresa)
+         .then(function(premios){
+           $scope.premios = premios;
+         })
+         .catch(function(erro){
+          console.log(erro);
+         });
+      };
 });

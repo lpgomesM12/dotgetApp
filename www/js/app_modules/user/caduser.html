@@ -1,0 +1,28 @@
+<ion-view view-title="Cadastrar">
+  <ion-content>
+
+    <form name="form" ng-submit="cadastrar()">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text"  placeholder="Primeiro nome" required ng-model="user.primeironome">
+        </label>
+        <label class="item item-input">
+          <input type="text"  placeholder="Sobrenome" required ng-model="user.segundonome">
+        </label>
+        <label class="item item-input">
+          <input type="email"  placeholder="Email" required ng-model="user.email">
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="Senha" required minlength=8 ng-model="user.password">
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="Repetir senha" required minlength=8 ng-model="user.confirmpassword">
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" ng-disabled="!form.$valid" type="submit">Cadastrar</button>
+        </label>
+      </div>
+    </form>
+
+  </ion-content>
+</ion-view>

@@ -1,10 +1,10 @@
 <ion-view view-title="">
   <ion-content>
-
     <!-- <a class="button icon ion-person" style="width:50%;height:20%"></a> -->
     <!-- faz uma validação para saber se o usuário está logado -->
     <div class="list list-inset" ng-if="!$storage.userLogado">
         <a class="button button-block icon-right ion-chevron-right button-positive" href="#/app/login">Acessar Conta</a>
+        <a class="button button-block icon-right ion-chevron-right button-positive" href="#/app/caduser">Cadastrar</a>
     </div>
 
     <div class="card" ng-if="$storage.userLogado">

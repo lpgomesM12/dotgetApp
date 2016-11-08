@@ -15,8 +15,8 @@
           <div class = "input-label">
            Prêmio
          </div>
-         <select ng-model="estado_id" ng-change="buscaCidades(estado_id)">
-            <option  ng-repeat="estado in estados" value="{{estado.id}}">{{estado.nome}}</option>
+         <select ng-model="premio_id">
+            <option  ng-repeat="premio in premios" value="{{premio.id}}">{{premio.nome_premio}} | Pts: {{premio.numr_ponto}}</option>
          </select>
       </label>
 
@@ -32,7 +32,7 @@
          <div class="item item-divider">
         </div>
       </div>
-      <button class="button button-block button-balanced ion-trophy" ng-disabled="!form1.$valid" ng-click="addPontoCliente(valor_gasto)">
+      <button class="button button-block button-balanced ion-trophy" ng-disabled="!form1.$valid" ng-click="resgataPonto()">
         Resgatar prêmio
       </button>
     </form>

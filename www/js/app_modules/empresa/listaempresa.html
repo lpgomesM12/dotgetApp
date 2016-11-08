@@ -1,0 +1,18 @@
+<ion-view view-title="Empresas">
+  <ion-content>
+
+    <div class="list">
+        <a class="item item-thumbnail-left" collection-repeat="empresa in empresas" ng-click="chamaModal(empresa.id,empresa.clientefiel)">
+          <!-- <img style="width:100px,height:100px" src="http://localhost:3000{{empresa.logo}}"> -->
+          <img style="width:100px,height:100px" src="http://138.68.62.151{{empresa.logo}}">
+          <h2>{{empresa.nome_empresa}}</h2>
+
+          <p><small>{{empresa.endereco}} {{empresa.cidade}} - {{empresa.sigl_estado}}</small></p>
+
+          <h2 style="color:#29b906" ng-if="empresa.clientefiel"><i class="ion-android-checkbox-outline"></i> Fidelizado</h2>
+          <h2 style="color:#004385" ng-if="!empresa.clientefiel"><i class="ion-android-checkbox-outline-blank"></i> Fidelizar</h2>
+        </a>
+    </div>
+
+  </ion-content>
+ </ion-view

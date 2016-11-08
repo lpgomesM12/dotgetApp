@@ -18,18 +18,33 @@
     </ion-header-bar>
     <ion-content >
       <ion-list ng-if="$storage.userLogado">
-        <ion-item menu-close class="item item-icon-left" href="#/app/addponto">
-          <i class="icon ion-plus"></i>
-          Adicionar Pontos
+
+       <!-- Exibir somente quando é perfil administrador -->
+       <div ng-if="$storage.userRole == 'ADMIN'">
+            <ion-item menu-close class="item item-icon-left" href="#/app/addponto">
+              <i class="icon ion-plus"></i>
+              Adicionar Pontos
+
+            </ion-item>
+            <ion-item menu-close class="item item-icon-left" href="#/app/clientehome">
+              <i class="icon ion-person-stalker"></i>
+                Clientes
+            </ion-item>
+            <ion-item menu-close class="item item-icon-left" href="#/app/resgatapremio">
+              <i class="icon ion-trophy"></i>
+                Prêmios
+            </ion-item>
+       </div>
+       <div ng-if="$storage.userRole == 'USER'">
+        <ion-item menu-close class="item item-icon-left" href="#/app/login">
+          <i class="icon ion-person"></i>
+            Perfil
         </ion-item>
-        <ion-item menu-close class="item item-icon-left" href="#/app/clientehome">
-          <i class="icon ion-person-stalker"></i>
-            Clientes
+        <ion-item menu-close class="item item-icon-left" href="#/app/listaempresas">
+          <i class="icon ion-ios-home"></i>
+            Empresas
         </ion-item>
-        <ion-item menu-close class="item item-icon-left" href="#/app/resgatapremio">
-          <i class="icon ion-trophy"></i>
-            Prêmios
-        </ion-item>
+      </div>
       </ion-list>
     </ion-content>
   </ion-side-menu>

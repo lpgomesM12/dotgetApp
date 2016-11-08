@@ -66,7 +66,7 @@ angular.module('cliente')
  //valida cliente
     service.validaCliente = function(cpf,empresa){
       return $q(function(resolve,reject){
-        $http.get('http://138.68.62.151/buscaCliente?cpf='+cpf+'&empresa_id='+empresa)
+      $http.get('http://138.68.62.151/buscaCliente?cpf='+cpf+'&empresa_id='+empresa)
       //$http.get('http://localhost:3000/buscaCliente?cpf='+cpf+'&empresa_id='+empresa)
         .success(function(cliente){
           resolve(cliente);
